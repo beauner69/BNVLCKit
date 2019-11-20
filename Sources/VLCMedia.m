@@ -705,6 +705,13 @@ static void HandleMediaParsedChanged(const libvlc_event_t * event, void * self)
     return p_stats.i_demux_discontinuity;
 }
 
+- (int)addSlaveAudio:(NSURL *)slaveURL {
+    if (!p_md) return 0;
+    // #define PRIORITY_LEVEL 1
+    #define PRIORITY_LEVEL 3
+    return libvlc_media_slaves_add(p_md,1,PRIORITY_LEVEL,[[slaveURL absoluteString] UTF8String]);
+}
+
 NSString *const VLCMediaTracksInformationCodec = @"codec"; // NSNumber
 NSString *const VLCMediaTracksInformationId    = @"id";    // NSNumber
 NSString *const VLCMediaTracksInformationType  = @"type";  // NSString

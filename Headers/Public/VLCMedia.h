@@ -595,6 +595,8 @@ typedef int VLCMediaParsingOptions;
  */
 - (void)clearStoredCookies;
 
+- (int)addSlaveAudio:(NSURL *)slaveURL;
+
 /**
  * Getter for statistics information
  * Returns a NSDictionary with NSNumbers for values.

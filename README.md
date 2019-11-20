@@ -1,14 +1,19 @@
+COMPILE AND BUILD
+
+IOS: (-l = skip library)
+./compileAndBuildVLCKit.sh -b -a aarch64 -l
+
 <img src="https://www.videolan.org/images/vlckit/logo.svg" alt="VLCKit logo" height="140">
 
 #
 
 **VLCKit** is a generic multimedia library for any audio or video playback needs on macOS, iOS and tvOS.
 
-|              | Platform                                                     | Master                                                       | Cocoapods                                                    |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| VLCKit       | ![Platform](https://img.shields.io/cocoapods/p/VLCKit.svg?style=flat) | ![CircleCI](https://img.shields.io/circleci/project/github/videolan/vlckit/master.svg) | [![VLCKit is CocoaPods Compatible](https://img.shields.io/cocoapods/v/VLCKit.svg)](https://cocoapods.org/pods/VLCKit) |
+|              | Platform                                                                    | Master                                                                                 | Cocoapods                                                                                                                               |
+| ------------ | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| VLCKit       | ![Platform](https://img.shields.io/cocoapods/p/VLCKit.svg?style=flat)       | ![CircleCI](https://img.shields.io/circleci/project/github/videolan/vlckit/master.svg) | [![VLCKit is CocoaPods Compatible](https://img.shields.io/cocoapods/v/VLCKit.svg)](https://cocoapods.org/pods/VLCKit)                   |
 | MobileVLCKit | ![Platform](https://img.shields.io/cocoapods/p/MobileVLCKit.svg?style=flat) | ![CircleCI](https://img.shields.io/circleci/project/github/videolan/vlckit/master.svg) | [![MobileVLCKit is CocoaPods Compatible](https://img.shields.io/cocoapods/v/MobileVLCKit.svg)](https://cocoapods.org/pods/MobileVLCKit) |
-| TVVLCKit     | ![Platform](https://img.shields.io/cocoapods/p/TVVLCKit.svg?style=flat) | ![CircleCI](https://img.shields.io/circleci/project/github/videolan/vlckit/master.svg) | [![TVVLCKit is CocoaPods Compatible](https://img.shields.io/cocoapods/v/TVVLCKit.svg)](https://cocoapods.org/pods/TVVLCKit) |
+| TVVLCKit     | ![Platform](https://img.shields.io/cocoapods/p/TVVLCKit.svg?style=flat)     | ![CircleCI](https://img.shields.io/circleci/project/github/videolan/vlckit/master.svg) | [![TVVLCKit is CocoaPods Compatible](https://img.shields.io/cocoapods/v/TVVLCKit.svg)](https://cocoapods.org/pods/TVVLCKit)             |
 
 ## Table of content
 
@@ -16,26 +21,26 @@
 - [Use-case](#use-case)
 - [Requirements](#requirements)
 - [Installation](#installation)
-    - [Cocoapods](#cocoapods)
-    - [Carthage](#carthage)
+  - [Cocoapods](#cocoapods)
+  - [Carthage](#carthage)
 - [Build](#build)
-    - [Default](#default)
-    - [Build with your own VLC repository](#build-with-your-own-vlc-repository)
+  - [Default](#default)
+  - [Build with your own VLC repository](#build-with-your-own-vlc-repository)
 - [Contribute](#contribute)
-    - [Pull Request](#pull-request)
-    - [GitLab Issues](#gitlab-issues)
-    - [Patches](#patches)
+  - [Pull Request](#pull-request)
+  - [GitLab Issues](#gitlab-issues)
+  - [Patches](#patches)
 - [FAQ](#faq)
 - [Communication](#communication)
-    - [Forum](#forum)
-    - [Issues](#issues)
-    - [IRC](#irc)
+  - [Forum](#forum)
+  - [Issues](#issues)
+  - [IRC](#irc)
 - [License](#license)
 - [Further reading](#further-reading)
 
 ## Features
 
-- Wrapper of **libVLC**, the engine of the popular media player *VLC*.
+- Wrapper of **libVLC**, the engine of the popular media player _VLC_.
 - Supports playback, active streaming, and media to file conversations on the Mac.
 - Open-source software licensed under [LGPLv2.1](http://opensource.org/licenses/LGPL-2.1/) or later, available in source code and binary form from [VideoLAN's website](http://www.videolan.org/).
 - Easily integratable via [CocoaPods](http://cocoapods.org/).
@@ -96,6 +101,7 @@ Then, run the following command:
 ```bash
 pod install
 ```
+
 ### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a way to add frameworks to your Cocoa application. You can install it with the following command:
@@ -107,16 +113,19 @@ brew install carthage
 To integrate VLCKit into your project, specify it in your `Cartfile`. The URL depends on your target OS.
 
 iOS:
+
 ```
 binary "https://code.videolan.org/videolan/VLCKit/raw/master/Packaging/MobileVLCKit.json" ~> 3.3.0
 ```
 
 macOS:
+
 ```
 binary "https://code.videolan.org/videolan/VLCKit/raw/master/Packaging/VLCKit.json" ~> 3.3.0
 ```
 
 tvOS:
+
 ```
 binary "https://code.videolan.org/videolan/VLCKit/raw/master/Packaging/TVVLCKit.json" ~> 3.3.0
 ```
@@ -129,25 +138,25 @@ carthage update
 
 Note that the following system dependencies are required and need to be linked into the project:
 
-* AudioToolbox.framework
-* AVFoundation.framework
-* CFNetwork.framework
-* CoreFoundation.framework
-* CoreGraphics.framework
-* CoreMedia.framework
-* CoreText.framework
-* CoreVideo.framework
-* Foundation.framework
-* libbz2.tbd
-* libiconv.tbd
-* OpenGLES.framework
-* QuartzCore.framework
-* Security.framework
-* VideoToolbox.framework
+- AudioToolbox.framework
+- AVFoundation.framework
+- CFNetwork.framework
+- CoreFoundation.framework
+- CoreGraphics.framework
+- CoreMedia.framework
+- CoreText.framework
+- CoreVideo.framework
+- Foundation.framework
+- libbz2.tbd
+- libiconv.tbd
+- OpenGLES.framework
+- QuartzCore.framework
+- Security.framework
+- VideoToolbox.framework
 
 On iOS and tvOS, you also need to link:
 
-* UIKit.framework
+- UIKit.framework
 
 ## Build
 
@@ -163,13 +172,13 @@ More information can be found under `./compileAndBuildVLCKit.sh -h`.
 
 1. Put a VLC repository inside `libvlc/vlc`.
 
-    `mkdir libvlc && cd libvlc && ln -s "PATH_TO_VLC"`
+   `mkdir libvlc && cd libvlc && ln -s "PATH_TO_VLC"`
 
 2. Apply VLC patches needed for VLCKit.
 
-    `cd vlc`
+   `cd vlc`
 
-    `git am ../../Resources/MobileVLCKit/patches/*`
+   `git am ../../Resources/MobileVLCKit/patches/*`
 
 3. run `compileAndBuildVLCKit.sh` with the `-n` option.
 
@@ -195,7 +204,7 @@ For detailed explanation on how to do so, please read our wiki page on [how to s
 
 > Q. Since this isn't under the MIT license, is there something special I should know?
 
-The [LGPLv2.1](http://opensource.org/licenses/LGPL-2.1/) allows our software to be included in proprietary apps, *as long as you follow the license.* Here are some key points you should be aware of.
+The [LGPLv2.1](http://opensource.org/licenses/LGPL-2.1/) allows our software to be included in proprietary apps, _as long as you follow the license._ Here are some key points you should be aware of.
 
 - Make sure to publish any potential changes you do to our software
 - Make sure that the end-user is aware that VLCKit is embedded within your greater work
