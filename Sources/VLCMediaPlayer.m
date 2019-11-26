@@ -695,7 +695,9 @@ static void HandleMediaPlayerRecord(const libvlc_event_t * event, void * self)
 {
     // Time is managed in seconds, while duration is managed in microseconds
     // TODO: Redo VLCTime to provide value numberAsMilliseconds, numberAsMicroseconds, numberAsSeconds, numberAsMinutes, numberAsHours
-    libvlc_media_player_set_time(_playerInstance, value ? [[value value] longLongValue] : 0, NO);
+    dispatch_async(_libVLCBackgroundQueue, ^{
+       libvlc_media_player_set_time(_playerInstance, value ? [[value value] longLongValue] : 0, NO);
+    });
 }
 
 - (VLCTime *)time
@@ -1049,6 +1051,12 @@ static void HandleMediaPlayerRecord(const libvlc_event_t * event, void * self)
     // Pause the stream
     dispatch_async(_libVLCBackgroundQueue, ^{
         libvlc_media_player_set_pause(_playerInstance, 1);
+
+        libvlc_time_t newTime = libvlc_media_player_get_time(_playerInstance);
+        [self willChangeValueForKey:@"time"];
+        _cachedTime = [VLCTime timeWithNumber:@(newTime)];
+    [self didChangeValueForKey:@"time"];
+
     });
 }
 

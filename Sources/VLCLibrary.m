@@ -122,8 +122,9 @@ static VLCLibrary * sharedLibrary = nil;
                     //   @"--audio-resampler=soxr"
 
                       @"--no-input-fast-seek",
-                      @"--no-avcodec-fast",
+                      @"--no-avcodec-fast", // If you turn this off then you get visual corruption the usual mpeg style shit
                       @"--audio-resampler=none",
+                    //   @"--high-priority", // NO GOOD - just crashes
 
                       ];
     

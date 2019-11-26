@@ -707,8 +707,8 @@ static void HandleMediaParsedChanged(const libvlc_event_t * event, void * self)
 
 - (int)addSlaveAudio:(NSURL *)slaveURL {
     if (!p_md) return 0;
-    // #define PRIORITY_LEVEL 1
-    #define PRIORITY_LEVEL 3
+    #define PRIORITY_LEVEL 1
+    // #define PRIORITY_LEVEL 3
     return libvlc_media_slaves_add(p_md,1,PRIORITY_LEVEL,[[slaveURL absoluteString] UTF8String]);
 }
 
